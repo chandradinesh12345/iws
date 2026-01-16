@@ -1,50 +1,51 @@
-import { Globe, Code, Smartphone, MessageSquare, Megaphone, Layers, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const services = [
   {
-    icon: Globe,
+    img: "./src/assets/web-design.webp",
     title: "Web Development",
+    slug: "web-design",
     description: "Create stunning, responsive websites that engage your audience and drive conversions with modern technologies.",
     features: ["React & Next.js", "Responsive Design", "SEO Optimized"],
-    color: "from-blue-500 to-cyan-500",
   },
   {
-    icon: Code,
+    img: "./src/assets/Software_Development.jpeg",
     title: "Software Development",
+    slug: "software-development",
     description: "Custom software solutions tailored to your business needs, built for scalability and performance.",
     features: ["Custom Solutions", "Cloud Integration", "API Development"],
-    color: "from-purple-500 to-pink-500",
   },
   {
-    icon: Smartphone,
+    img: "./src/assets/MobileAppDevelopment.webp",
     title: "Mobile App Development",
+    slug: "mobile-apps",
     description: "Native and cross-platform mobile applications that deliver exceptional user experiences.",
     features: ["iOS & Android", "React Native", "Flutter Apps"],
-    color: "from-orange-500 to-red-500",
   },
   {
-    icon: MessageSquare,
-    title: "Survey GPT Website",
+    img: "./src/assets/SurveyWebsite.webp",
+    title: "Survey Website",
+    slug: "survey-website",
     description: "AI-powered survey platforms that collect intelligent insights and automate data analysis.",
     features: ["AI Integration", "Smart Analytics", "Real-time Reports"],
-    color: "from-green-500 to-emerald-500",
   },
   {
-    icon: Megaphone,
+    img: "./src/assets/DigitalMarketing.webp",
     title: "Digital Marketing",
+    slug: "digital-marketing",
     description: "Strategic digital marketing campaigns that increase visibility and drive qualified leads.",
     features: ["SEO & SEM", "Social Media", "Content Strategy"],
-    color: "from-pink-500 to-rose-500",
   },
   {
-    icon: Layers,
+    img: "./src/assets/ITConsulting.webp",
     title: "IT Consulting",
+    slug: "it-consulting",
     description: "Expert guidance on technology strategies to optimize your operations and drive growth.",
     features: ["Tech Strategy", "Infrastructure", "Security Audit"],
-    color: "from-indigo-500 to-violet-500",
   },
 ];
+
 
 export const ServicesSection = () => {
   return (
@@ -73,14 +74,22 @@ export const ServicesSection = () => {
             >
               {/* Gradient Border on Hover */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl p-[1px]">
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-50`} />
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br opacity-50`} />
               </div>
               
-              <div className="relative p-8 bg-card rounded-2xl m-[1px]">
-                {/* Icon */}
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <service.icon className="w-8 h-8 text-white" />
+              <div className="relative p-4 bg-card rounded-2xl m-[1px]">
+                {/* img */}
+                <div
+                  className={`w-full h-[200px] rounded-2xl mb-6
+                  group-hover:scale-[1.2] transition-transform object-cover overflow-hidden duration-300`}
+                >
+                  <img
+                    src={service.img}
+                    alt={service.title}
+                    className="w-full h-[200px] object-cover rounded-2xl"
+                  />
                 </div>
+
                 
                 {/* Content */}
                 <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors">
@@ -91,10 +100,10 @@ export const ServicesSection = () => {
                 </p>
                 
                 {/* Features */}
-                <ul className="space-y-2 mb-6">
+                <ul className="space-y-2 mb-2">
                   {service.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br ${service.color}`} />
+                      <span className={`w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#d4263c] to-cyan-500}`} />
                       {feature}
                     </li>
                   ))}
@@ -102,8 +111,8 @@ export const ServicesSection = () => {
                 
                 {/* Link */}
                 <Link 
-                  to="/services" 
-                  className="inline-flex items-center gap-2 text-primary font-semibold text-sm group/link"
+                  to={`/services/${service.slug}`}
+                  className="inline-flex items-center border-b border-primary gap-2 text-primary font-semibold text-sm group/link"
                 >
                   Learn More 
                   <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />

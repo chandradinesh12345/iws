@@ -1,21 +1,39 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Logo } from "./Logo";
 import { QuoteDialog } from "./QuoteDialog";
 import { Button } from "./ui/button";
+import { NavLink } from "@/components/NavLink";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
+
+  {
+    name: "Services",
+    href: "/services",
+    children: [
+      { name: "Web Development", href: "/services/web-design" },
+      { name: "Software Development", href: "/services/software-development" },
+      { name: "Mobile Apps", href: "/services/mobile-apps" },
+      { name: "Digital Marketing", href: "/services/digital-marketing" },
+      { name: "Survey Website", href: "/services/survey-website" },
+      { name: "IT Consulting", href: "/services/it-consulting" },
+    ],
+  },
+
   { name: "About", href: "/about" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Blog", href: "/blog" },
+  { name: "Career", href: "/career" },
   { name: "Contact", href: "/contact" },
 ];
 
+
 export const ResizableNavbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [openService, setOpenService] = useState(false);
+
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -64,32 +82,78 @@ export const ResizableNavbar = () => {
               <Logo isScrolled={isScrolled} />
 
               {/* Desktop Navigation */}
-              <div className={`
-                hidden md:flex items-center
-                transition-all duration-500 ease-smooth
-                ${isScrolled ? "gap-0.5" : "gap-1"}
-              `}>
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className={`
-                      transition-all duration-300 rounded-full
-                      hover:bg-secondary
-                      ${location.pathname === link.href 
-                        ? "text-primary font-medium" 
-                        : "text-muted-foreground hover:text-foreground"
-                      }
-                      ${isScrolled 
-                        ? "px-3 py-1.5 text-sm" 
-                        : "px-3 py-2 text-sm"
-                      }
-                    `}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
+              <div
+                  className={`
+                    hidden md:flex items-center
+                    transition-all duration-500 ease-smooth
+                    ${isScrolled ? "gap-0.5" : "gap-1"}
+                  `}
+                >
+                  {navLinks.map((link) =>
+                    link.children ? (
+                      <div key={link.name} className="relative group">
+                        {/* Parent */}
+                        <NavLink
+                          to={link.href}
+                          className={`
+                            flex items-center gap-1 rounded-full transition-all
+                            hover:bg-secondary
+                            ${location.pathname.startsWith("/services")
+                              ? "text-primary font-medium"
+                              : "text-muted-foreground hover:text-foreground"}
+                            ${isScrolled ? "px-3 py-1.5 text-sm" : "px-3 py-2 text-sm"}
+                          `}
+                        >
+                          {link.name}
+                          <ChevronDown className="w-4 h-4 mt-0.5" />
+                        </NavLink>
+
+                        {/* Dropdown */}
+                        <div
+                          className="
+                            absolute left-0 top-full mt-2 w-60
+                            rounded-2xl border border-white/10
+                            bg-card backdrop-blur-xl shadow-xl
+                            opacity-0 invisible group-hover:opacity-100 group-hover:visible
+                            transition-all duration-300
+                          "
+                        >
+                          {link.children.map((child) => (
+                            <NavLink
+                              key={child.name}
+                              to={child.href}
+                              className="
+                                block px-5 py-3 text-sm
+                                text-muted-foreground
+                                hover:bg-secondary hover:text-foreground
+                                first:rounded-t-2xl last:rounded-b-2xl
+                              "
+                              activeClassName="text-primary bg-primary/10"
+                            >
+                              {child.name}
+                            </NavLink>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <NavLink
+                        key={link.name}
+                        to={link.href}
+                        className={`
+                          rounded-full transition-all
+                          hover:bg-secondary
+                          ${location.pathname === link.href
+                            ? "text-primary font-medium"
+                            : "text-muted-foreground hover:text-foreground"}
+                          ${isScrolled ? "px-3 py-1.5 text-sm" : "px-3 py-2 text-sm"}
+                        `}
+                      >
+                        {link.name}
+                      </NavLink>
+                    )
+                  )}
+                </div>
+
 
               {/* CTA Button */}
               <div className="flex items-center gap-3">
@@ -156,29 +220,64 @@ export const ResizableNavbar = () => {
           `}
         >
           <nav className="flex flex-col gap-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className={`px-4 py-3 text-base rounded-xl transition-all
-                  ${location.pathname === link.href 
-                    ? "text-primary bg-primary/10 font-medium" 
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
-                  }
-                `}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.children ? (
+                <div key={link.name}>
+                  {/* Parent */}
+                  <button
+                    onClick={() => setOpenService(!openService)}
+                    className="flex w-full items-center justify-between px-4 py-3 text-base rounded-xl
+                    text-muted-foreground hover:text-foreground hover:bg-secondary transition-all"
+                  >
+                    {link.name}
+                    <ChevronDown
+                      className={`w-4 h-4 transition-transform ${
+                        openService ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+
+                  {/* Children */}
+                  {openService && (
+                    <div className="ml-4 mt-1 space-y-1">
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.name}
+                          to={child.href}
+                          className="block px-4 py-2 text-sm rounded-lg
+                          text-muted-foreground hover:text-foreground hover:bg-secondary"
+                        >
+                          {child.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={`px-4 py-3 text-base rounded-xl transition-all
+                    ${location.pathname === link.href
+                      ? "text-primary bg-primary/10 font-medium"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"}
+                  `}
+                >
+                  {link.name}
+                </Link>
+              )
+            )}
+
             <QuoteDialog>
               <Button
-                className="mt-4 w-full px-4 py-3 text-base font-semibold text-center text-primary-foreground rounded-xl hover:opacity-90 transition-all border-0"
+                className="mt-4 w-full px-4 py-3 text-base font-semibold text-primary-foreground rounded-xl border-0"
                 style={{ background: "var(--gradient-primary)" }}
               >
                 Get Quote
               </Button>
             </QuoteDialog>
           </nav>
+
         </div>
       </div>
     </>

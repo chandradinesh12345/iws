@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram } from "lucide-react";
 import { Logo } from "./Logo";
 
 const footerLinks = {
@@ -24,10 +24,9 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Instagram, href: "#", label: "Instagram" },
+  { icon: Facebook, href: "https://www.facebook.com/infowebsoftware1", label: "Facebook" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/info-web-software-technology/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/iws.infowebsoftware/", label: "Instagram" },
 ];
 
 export const Footer = () => {
@@ -114,6 +113,7 @@ export const Footer = () => {
                 key={social.label}
                 href={social.href}
                 aria-label={social.label}
+                target="_blank"
                 className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors group"
               >
                 <social.icon className="w-4 h-4 text-background/70 group-hover:text-primary-foreground transition-colors" />

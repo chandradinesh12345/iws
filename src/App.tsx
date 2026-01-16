@@ -16,6 +16,15 @@ import TermsConditions from "./pages/TermsConditions";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
+// ✅ service pages
+import WebDesign from "./pages/servicespages/WebDesign";
+import SoftwareDevelopment from "./pages/servicespages/SoftwareDevelopment";
+import MobileApps from "./pages/servicespages/MobileApps";
+import DigitalMarketing from "./pages/servicespages/DigitalMarketing";
+import SurveyWebsite from "./pages/servicespages/SurveyWebsite";
+import ITConsulting from "./pages/servicespages/ITConsulting";
+
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -26,7 +35,18 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/services" element={<Services />} />
+          
+          {/* SERVICES (Parent) */}
+          <Route path="/services" element={<Services />}>
+            <Route path="web-design" element={<WebDesign />} />
+            <Route path="software-development" element={<SoftwareDevelopment />} />
+            <Route path="mobile-apps" element={<MobileApps />} />
+            <Route path="digital-marketing" element={<DigitalMarketing />} />
+            <Route path="survey-website" element={<SurveyWebsite />} />
+            <Route path="it-consulting" element={<ITConsulting />} />
+          </Route>
+
+
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />

@@ -1,12 +1,11 @@
 const clients = [
-  { name: "Google", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" },
-  { name: "Microsoft", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
-  { name: "Amazon", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
-  { name: "Facebook", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" },
-  { name: "Apple", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" },
-  { name: "Slack", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/slack/slack-original.svg" },
-  { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-  { name: "Jira", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
+  { name: "aimaxhub", logo: "./src/assets/clients/aimaxhub.webp" },
+  { name: "aimaxhub", logo: "./src/assets/clients/AutozCrave.webp" },
+  { name: "aimaxhub", logo: "./src/assets/clients/pantnagar.webp" },
+  { name: "aimaxhub", logo: "./src/assets/clients/virnam.webp" },
+  { name: "aimaxhub", logo: "./src/assets/clients/one_support_one_life.png" },
+  { name: "aimaxhub", logo: "./src/assets/clients/dollar_gc.png" },
+  { name: "aimaxhub", logo: "./src/assets/clients/Bijatech_logo.png" },
 ];
 
 export const ClientsSection = () => {
@@ -34,7 +33,7 @@ export const ClientsSection = () => {
                 <img 
                   src={client.logo} 
                   alt={client.name}
-                  className="h-10 w-10 object-contain opacity-60 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
+                  className="h-10 w-50 object-contain"
                 />
               </div>
             ))}
