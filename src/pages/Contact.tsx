@@ -6,9 +6,9 @@ import { useToast } from "@/hooks/use-toast";
 
 const contactInfo = [
   { icon: Mail, label: "Email", value: "info@infowebsoftware.com", href: "mailto:info@infowebsoftware.com" },
-  { icon: Phone, label: "Phone", value: "+91 98765 43210", href: "tel:+919876543210" },
-  { icon: MapPin, label: "Address", value: "Mumbai, Maharashtra, India", href: "#" },
-  { icon: Clock, label: "Working Hours", value: "Mon - Sat: 9AM - 6PM", href: "#" },
+  { icon: Phone, label: "Phone", value: "+91 9627407876", href: "tel:9627407876" },
+  { icon: MapPin, label: "Address", value: "Manral’s Business Center Chharayal Choraha, Birla School Road, Haldwani, Uttarakhand 263139", href: "#" },
+  { icon: Clock, label: "Working Hours", value: "9AM to 5PM Mon To Sat", href: "#" },
 ];
 
 const Contact = () => {
@@ -17,7 +17,7 @@ const Contact = () => {
     name: "",
     email: "",
     phone: "",
-    subject: "",
+    services: "",
     message: "",
   });
 
@@ -27,7 +27,7 @@ const Contact = () => {
       title: "Message Sent!",
       description: "Thank you for contacting us. We'll get back to you soon.",
     });
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    setFormData({ name: "", email: "", phone: "", services: "", message: "" });
   };
 
   return (
@@ -50,7 +50,7 @@ const Contact = () => {
         </section>
 
         {/* Contact Form & Info */}
-        <section className="py-20">
+        <section className="py-10">
           <div className="section-container">
             <div className="grid lg:grid-cols-5 gap-12">
               {/* Contact Info */}
@@ -93,7 +93,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                        placeholder="John Doe"
+                        placeholder="Enter your name"
                       />
                     </div>
                     <div>
@@ -104,7 +104,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                        placeholder="john@example.com"
+                        placeholder="name@example.com"
                       />
                     </div>
                     <div>
@@ -114,18 +114,18 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                        placeholder="+91 98765 43210"
+                        placeholder="Enter your phone number"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium mb-2">Subject</label>
+                      <label className="block text-sm font-medium mb-2">Services</label>
                       <input
                         type="text"
                         required
-                        value={formData.subject}
-                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        value={formData.services}
+                        onChange={(e) => setFormData({ ...formData, services: e.target.value })}
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-                        placeholder="Project Inquiry"
+                        placeholder="Enter services you're interested in"
                       />
                     </div>
                   </div>
@@ -155,7 +155,7 @@ const Contact = () => {
           <div className="section-container">
             <div className="rounded-3xl overflow-hidden border border-border h-[400px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.11609823277!2d72.74109995709657!3d19.08219783953065!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1703123456789!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55726.660119815555!2d79.41676765820313!3d29.196592299999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a09b2e96b1384f%3A0xc4b8c3b3ea1877d7!2sInfo%20Web%20Software!5e0!3m2!1sen!2sin!4v1769141842614!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

@@ -34,7 +34,7 @@ const stats = [
 
 export const AboutSection = () => {
   return (
-    <section id="about" className="py-24 bg-secondary/30 relative noise-bg overflow-hidden">
+    <section id="about" className=" bg-secondary/30 relative noise-bg overflow-hidden">
       {/* Background Decorations */}
       <div className="absolute top-20 -right-20 w-80 h-80 bg-primary/5 rounded-full blur-[100px]" />
       <div className="absolute bottom-20 -left-20 w-80 h-80 bg-accent/5 rounded-full blur-[100px]" />

@@ -99,7 +99,7 @@ const Career = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-secondary/30">
+      <section className="pt-10 bg-secondary/30">
         <div className="section-container">
           <h2 className="text-2xl font-bold text-center mb-10">Why Work With Us?</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
@@ -114,7 +114,7 @@ const Career = () => {
       </section>
 
       {/* Job Openings */}
-      <section className="py-24">
+      <section className="py-10">
         <div className="section-container">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -167,14 +167,14 @@ const Career = () => {
       </section>
 
       {/* Application Form */}
-      <section className="py-24 bg-secondary/30">
+      <section className="py-10 bg-secondary/30">
         <div className="section-container">
           <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold mb-4">Apply Now</h2>
-              <p className="text-muted-foreground">Send us your details and we'll get back to you.</p>
-            </div>
             <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-2xl bg-card border border-border">
+              <div className="text-center mb-10">
+                <h2 className="text-3xl font-bold mb-4">Apply Now</h2>
+                <p className="text-muted-foreground">Send us your details and we'll get back to you.</p>
+              </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 <Input
                   placeholder="Your Name *"

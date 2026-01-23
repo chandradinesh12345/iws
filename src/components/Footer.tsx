@@ -4,10 +4,12 @@ import { Logo } from "./Logo";
 
 const footerLinks = {
   services: [
-    { name: "Web Development", href: "/services" },
-    { name: "Mobile Apps", href: "/services" },
-    { name: "Software Development", href: "/services" },
-    { name: "Digital Marketing", href: "/services" },
+    { name: "Web Development", href: "/services/web-design" },
+    { name: "Software Development", href: "/services/software-development" },
+    { name: "Mobile Apps", href: "/services/mobile-apps" },
+    { name: "Digital Marketing", href: "/services/digital-marketing" },
+    { name: "Survey Website", href: "/services/survey-website" },
+    { name: "IT Consulting", href: "/services/it-consulting" },
   ],
   company: [
     { name: "About Us", href: "/about" },
@@ -31,7 +33,7 @@ const socialLinks = [
 
 export const Footer = () => {
   return (
-    <footer id="contact" className="bg-foreground text-background pt-20 pb-8">
+    <footer id="contact" className="bg-foreground text-background pt-20 pb-4">
       <div className="section-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
           {/* Company Info */}
@@ -50,11 +52,11 @@ export const Footer = () => {
               </a>
               <a href="tel:+919876543210" className="flex items-center gap-3 text-background/70 hover:text-primary transition-colors">
                 <Phone className="w-4 h-4" />
-                +91 98765 43210
+                +91 9627407876
               </a>
               <div className="flex items-start gap-3 text-background/70">
                 <MapPin className="w-4 h-4 mt-0.5" />
-                <span>Mumbai, Maharashtra, India</span>
+                <span>Manral’s Business Center Chharayal Choraha, Birla School Road, Haldwani, Uttarakhand 263139</span>
               </div>
             </div>
           </div>
@@ -103,7 +105,7 @@ export const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="pt-4 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-background/60 text-sm">
             © 2024 Info Web Software. All rights reserved.
           </p>
