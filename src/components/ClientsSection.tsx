@@ -1,12 +1,22 @@
+import aimaxhub from "@/assets/clients/aimaxhub.webp";
+import autozCrave from "@/assets/clients/AutozCrave.webp";
+import pantnagar from "@/assets/clients/pantnagar.webp";
+import virnam from "@/assets/clients/virnam.webp";
+import oneSupport from "@/assets/clients/one_support_one_life.png";
+import dollarGc from "@/assets/clients/dollar_gc.png";
+import bijatech from "@/assets/clients/Bijatech_logo.png";
+
+
 const clients = [
-  { name: "aimaxhub", logo: "./src/assets/clients/aimaxhub.webp" },
-  { name: "aimaxhub", logo: "./src/assets/clients/AutozCrave.webp" },
-  { name: "aimaxhub", logo: "./src/assets/clients/pantnagar.webp" },
-  { name: "aimaxhub", logo: "./src/assets/clients/virnam.webp" },
-  { name: "aimaxhub", logo: "./src/assets/clients/one_support_one_life.png" },
-  { name: "aimaxhub", logo: "./src/assets/clients/dollar_gc.png" },
-  { name: "aimaxhub", logo: "./src/assets/clients/Bijatech_logo.png" },
+  { name: "aimaxhub", logo: aimaxhub },
+  { name: "AutozCrave", logo: autozCrave },
+  { name: "pantnagar", logo: pantnagar },
+  { name: "virnam", logo: virnam },
+  { name: "one_support_one_life", logo: oneSupport },
+  { name: "dollar_gc", logo: dollarGc },
+  { name: "Bijatech_logo", logo: bijatech },
 ];
+
 
 export const ClientsSection = () => {
   return (

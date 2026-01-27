@@ -1,44 +1,51 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import webdesign from "../assets/web-design.webp";
+import SoftwareDevelopment from "../assets/Software_Development.jpeg";
+import MobileAppDevelopment from "../assets/MobileAppDevelopment.webp";
+import SurveyWebsite from "../assets/SurveyWebsite.webp";
+import DigitalMarketing from "../assets/DigitalMarketing.webp";
+import ITConsulting from "../assets/ITConsulting.webp";
+
 const services = [
   {
-    img: "./src/assets/web-design.webp",
+    img: webdesign,
     title: "Web Development",
     slug: "web-design",
     description: "Create stunning, responsive websites that engage your audience and drive conversions with modern technologies.",
     features: ["React & Next.js", "Responsive Design", "SEO Optimized"],
   },
   {
-    img: "./src/assets/Software_Development.jpeg",
+    img: SoftwareDevelopment,
     title: "Software Development",
     slug: "software-development",
     description: "Custom software solutions tailored to your business needs, built for scalability and performance.",
     features: ["Custom Solutions", "Cloud Integration", "API Development"],
   },
   {
-    img: "./src/assets/MobileAppDevelopment.webp",
+    img: MobileAppDevelopment,
     title: "Mobile App Development",
     slug: "mobile-apps",
     description: "Native and cross-platform mobile applications that deliver exceptional user experiences.",
     features: ["iOS & Android", "React Native", "Flutter Apps"],
   },
   {
-    img: "./src/assets/SurveyWebsite.webp",
+    img: SurveyWebsite,
     title: "Survey Website",
     slug: "survey-website",
     description: "AI-powered survey platforms that collect intelligent insights and automate data analysis.",
     features: ["AI Integration", "Smart Analytics", "Real-time Reports"],
   },
   {
-    img: "./src/assets/DigitalMarketing.webp",
+    img: DigitalMarketing,
     title: "Digital Marketing",
     slug: "digital-marketing",
     description: "Strategic digital marketing campaigns that increase visibility and drive qualified leads.",
     features: ["SEO & SEM", "Social Media", "Content Strategy"],
   },
   {
-    img: "./src/assets/ITConsulting.webp",
+    img: ITConsulting,
     title: "IT Consulting",
     slug: "it-consulting",
     description: "Expert guidance on technology strategies to optimize your operations and drive growth.",

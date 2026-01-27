@@ -1,220 +1,263 @@
-import {
-  Code,
-  Layout,
-  Gauge,
-  ShieldCheck,
-  Search,
+import { ArrowRight, CheckCircle, Building2,
+  ShoppingCart,
+  LayoutTemplate,
+  User,
   Layers,
-  CheckCircle,
-} from "lucide-react";
+  Gift } from "lucide-react";
+import { Link } from "react-router-dom";
+
+import heroImg from "@/assets/service_img_1.png";
+import processImg from "@/assets/service_img_2.png";
+import qualityImg from "@/assets/service_img_3.png";
+
+const websiteTypes = [
+  {
+    title: "Business & Corporate Websites",
+    icon: Building2,
+  },
+  {
+    title: "E-commerce Websites",
+    icon: ShoppingCart,
+  },
+  {
+    title: "Landing Pages",
+    icon: LayoutTemplate,
+  },
+  {
+    title: "Portfolio Websites",
+    icon: User,
+  },
+  {
+    title: "SaaS Applications",
+    icon: Layers,
+  },
+  {
+    title: "Survey & Reward Platforms",
+    icon: Gift,
+  },
+];
 
 const WebDesign = () => {
   return (
-    <div className="bg-background">
+    <>
+      {/* ================= HERO ================= */}
+      <section className="relative py-28 bg-gradient-to-br from-primary/10 via-transparent to-cyan-500/10">
+        <div className="section-container grid lg:grid-cols-2 gap-14 items-center relative z-10">
 
-      {/* ================= BANNER SECTION ================= */}
-      <section className="relative h-[70vh] flex items-center">
-        {/* Background Image */}
-        <img
-          src="https://shop-api.leaseweb.com/medias/HOMEPAGE-CAROUSEL-1920x642-22-.webp?context=bWFzdGVyfGltYWdlc3w2Njk5MHxpbWFnZS93ZWJwfGFEazRMMmc1TUM4NU1qSTVNVGN4TnpVeU9Ua3dMMGhQVFVWUVFVZEZJRU5CVWs5VlUwVk1JQzBnTVRreU1IZzJORElnS0RJeUtTNTNaV0p3fDg5NGQwNjI1NjY2OTc0NGQ2M2ZjNjI3NjYyYzA2ODc2ZTExMGM4YjkxMTAwODlmOWUwZDA0MzRjMDJmODkwYjc"
-          alt="Website Development Banner"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+          {/* Text */}
+          <div>
+            <span className="inline-block mb-4 px-4 py-1 rounded-full text-sm bg-primary/10 text-primary">
+              Website Development
+            </span>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/60" />
+            <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight mb-6">
+              Build <span className="text-gradient">High-Performance Websites</span> That Grow Your Business
+            </h1>
 
-        {/* Content */}
-        <div className="relative section-container text-center text-white">
-          <span className="inline-block mb-4 text-sm tracking-wide uppercase text-white/70">
-            Services / Website Development
-          </span>
+            <p className="text-muted-foreground text-lg mb-8 max-w-xl">
+              We design and develop fast, secure, and scalable websites that
+              deliver exceptional user experience and real business results.
+            </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4">
-            Website Development
-          </h1>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 btn-primary px-7 py-3 rounded-xl"
+            >
+              Start Your Project
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
 
-          <p className="max-w-2xl mx-auto text-lg text-white/80">
-            Scalable, secure, and performance-driven website development
-            solutions tailored for modern businesses.
-          </p>
-        </div>
-      </section>
-
-      {/* ================= OVERVIEW ================= */}
-      <section className="py-24">
-        <div className="section-container max-w-5xl">
-          <h2 className="text-3xl font-bold mb-6">
-            Website Development Overview
-          </h2>
-
-          <p className="text-muted-foreground leading-relaxed mb-6">
-            Website development is the foundation of your digital presence.
-            It goes beyond visual design to include performance, scalability,
-            security, and user experience. A professionally developed website
-            helps build trust, improves visibility, and supports business growth.
-          </p>
-
-          <p className="text-muted-foreground leading-relaxed">
-            We develop websites with a long-term mindset — ensuring clean code,
-            future scalability, and seamless integrations with modern tools and
-            platforms.
-          </p>
-        </div>
-      </section>
-
-      {/* ================= CAPABILITIES ================= */}
-      <section className="py-24 bg-card border-y border-border">
-        <div className="section-container">
-          <h2 className="text-3xl font-bold mb-14 text-center">
-            Core Website Development Capabilities
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Capability
-              icon={Layout}
-              title="UI/UX & Interface Architecture"
-              desc="User-focused layouts and responsive interfaces designed for clarity and usability."
-            />
-            <Capability
-              icon={Code}
-              title="Frontend & Backend Engineering"
-              desc="Modern frameworks and clean codebases built for long-term scalability."
-            />
-            <Capability
-              icon={Gauge}
-              title="Performance Optimization"
-              desc="Fast-loading websites optimized for speed and smooth interaction."
-            />
-            <Capability
-              icon={Search}
-              title="SEO-Ready Development"
-              desc="Search-engine friendly structure and accessibility compliance."
-            />
-            <Capability
-              icon={ShieldCheck}
-              title="Security & Reliability"
-              desc="Secure authentication, data protection, and best-practice security layers."
-            />
-            <Capability
-              icon={Layers}
-              title="Scalable Architecture"
-              desc="Flexible system design that evolves with your business needs."
+          {/* Image */}
+          <div className="relative">
+            <img
+              src={heroImg}
+              alt="Website Development"
+              className="w-full max-w-lg mx-auto drop-shadow-2xl"
             />
           </div>
+        </div>
+      </section>
+
+      {/* ================= INTRO ================= */}
+      <section className="py-24">
+        <div className="section-container grid lg:grid-cols-2 gap-16 items-center">
+
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-5">
+              Websites Designed for Performance & Conversions
+            </h2>
+
+            <p className="text-muted-foreground mb-4">
+              Your website is the first impression of your brand. We focus on
+              building modern, responsive, and SEO-ready websites that engage
+              users and convert visitors into customers.
+            </p>
+
+            <p className="text-muted-foreground">
+              From startups to enterprises, our solutions are crafted to scale
+              with your business needs.
+            </p>
+          </div>
+
+          <div className="bg-card border border-border rounded-3xl p-8 shadow-lg">
+            <ul className="space-y-4">
+              {[
+                "Lightning-fast loading speed",
+                "Mobile-first responsive layouts",
+                "SEO-friendly architecture",
+                "Secure & scalable codebase",
+                "Easy content management",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
       </section>
 
       {/* ================= PROCESS ================= */}
-      <section className="py-24">
-        <div className="section-container">
-          <h2 className="text-3xl font-bold mb-14 text-center">
-            How We Execute Website Projects
-          </h2>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <ProcessStep
-              step="01"
-              title="Requirement & Analysis"
-              desc="Understanding business goals, users, and technical requirements."
-            />
-            <ProcessStep
-              step="02"
-              title="Design & Experience Planning"
-              desc="Creating structured UI/UX systems and visual direction."
-            />
-            <ProcessStep
-              step="03"
-              title="Development & Integration"
-              desc="Robust frontend and backend development with integrations."
-            />
-            <ProcessStep
-              step="04"
-              title="Testing & Deployment"
-              desc="Quality assurance, performance checks, and controlled launch."
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ================= WHY CHOOSE US ================= */}
-      <section className="py-24 bg-card border-y border-border">
+      <section className="py-24 bg-muted/40">
         <div className="section-container grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Image */}
-          <div>
-            <img
-              src="/images/why-choose-web.jpg"
-              alt="Why Choose Our Website Development"
-              className="rounded-3xl shadow-xl border border-border"
-            />
-          </div>
+          <img
+            src={processImg}
+            alt="Development Process"
+            className="rounded-3xl shadow-xl"
+          />
 
-          {/* Content */}
+          {/* Steps */}
           <div>
-            <h2 className="text-3xl font-bold mb-8">
-              Why Choose Our Website Development
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+              Our Website Development Process
             </h2>
 
-            <div className="space-y-5">
+            <div className="space-y-6">
               {[
-                "Business-driven development approach",
-                "Clean, maintainable, and scalable code",
-                "Mobile-first and responsive design",
-                "SEO and performance-focused structure",
-                "Secure and reliable architecture",
-                "Transparent communication & delivery",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 text-primary mt-1" />
-                  <p className="text-muted-foreground">{item}</p>
+                ["Discovery & Planning", "Understanding business goals and requirements"],
+                ["UI/UX Design", "Creating clean, user-centric designs"],
+                ["Development", "Building fast and scalable systems"],
+                ["Optimization & SEO", "Performance tuning & search optimization"],
+                ["Testing & Launch", "Quality assurance and secure deployment"],
+              ].map(([title, desc], i) => (
+                <div key={i} className="flex gap-4">
+                  <span className="text-primary font-bold text-lg">
+                    {`0${i + 1}`}
+                  </span>
+                  <div>
+                    <h4 className="font-semibold">{title}</h4>
+                    <p className="text-muted-foreground text-sm">
+                      {desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </section>
 
-    </div>
+      {/* ================= TYPES ================= */}
+      <section className="py-24 bg-white">
+        <div className="section-container">
+
+          {/* Heading */}
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              Types of Websites We Build
+            </h2>
+            <p className="text-gray-500 max-w-xl mx-auto">
+              We design and develop a wide range of websites tailored to different
+              business needs and industries.
+            </p>
+          </div>
+
+          {/* Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {websiteTypes.map((item) => (
+              <div
+                key={item.title}
+                className="
+                  group
+                  bg-white
+                  border border-gray-200
+                  rounded-2xl
+                  p-8
+                  text-center
+                  shadow-sm
+                  hover:shadow-xl
+                  hover:border-primary/40
+                  transition-all duration-300
+                "
+              >
+                {/* Icon */}
+                <div
+                  className="
+                    w-14 h-14 mx-auto mb-5
+                    flex items-center justify-center
+                    rounded-xl
+                    bg-primary/10
+                    text-primary
+                    group-hover:bg-primary
+                    group-hover:text-white
+                    transition-all duration-300
+                  "
+                >
+                  <item.icon className="w-7 h-7" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {item.title}
+                </h3>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= WHY CHOOSE US ================= */}
+      <section className="py-24 bg-muted/40">
+        <div className="section-container grid lg:grid-cols-2 gap-16 items-center">
+
+          <div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Why Choose Our Website Development Services?
+            </h2>
+
+            <ul className="space-y-4">
+              {[
+                "Experienced design & development team",
+                "Modern technology stack",
+                "SEO & performance focused",
+                "Secure and scalable solutions",
+                "Transparent communication",
+                "Long-term support & maintenance",
+              ].map((point) => (
+                <li key={point} className="flex items-center gap-3">
+                  <CheckCircle className="w-5 h-5 text-primary" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <img
+            src={qualityImg}
+            alt="Quality Driven Development"
+          />
+        </div>
+      </section>
+
+    </>
   );
 };
 
 export default WebDesign;
-
-/* ================= COMPONENTS ================= */
-
-const Capability = ({
-  icon: Icon,
-  title,
-  desc,
-}: {
-  icon: any;
-  title: string;
-  desc: string;
-}) => (
-  <div className="p-8 rounded-3xl bg-background border border-border hover:border-primary transition">
-    <Icon className="w-8 h-8 text-primary mb-4" />
-    <h3 className="font-semibold text-lg mb-2">{title}</h3>
-    <p className="text-sm text-muted-foreground leading-relaxed">
-      {desc}
-    </p>
-  </div>
-);
-
-const ProcessStep = ({
-  step,
-  title,
-  desc,
-}: {
-  step: string;
-  title: string;
-  desc: string;
-}) => (
-  <div className="p-8 rounded-3xl bg-card border border-border">
-    <span className="text-primary text-2xl font-bold">{step}</span>
-    <h4 className="mt-4 font-semibold text-lg">{title}</h4>
-    <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-      {desc}
-    </p>
-  </div>
-);
