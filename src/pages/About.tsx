@@ -1,13 +1,14 @@
 import { ResizableNavbar } from "@/components/ResizableNavbar";
 import { Footer } from "@/components/Footer";
+import { TeamSection } from "@/components/TeamSection";
 import { Target, Eye, Users, Award, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const stats = [
   { value: "500+", label: "Projects Completed" },
-  { value: "200+", label: "Happy Clients" },
+  { value: "250+", label: "Loyal Clients" },
   { value: "5+", label: "Years Experience" },
-  { value: "50+", label: "Team Members" },
+  { value: "15+", label: "Team Members" },
 ];
 
 const values = [
@@ -33,12 +34,6 @@ const values = [
   },
 ];
 
-const team = [
-  { name: "Rajesh Kumar", role: "CEO & Founder", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face" },
-  { name: "Priya Sharma", role: "CTO", image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop&crop=face" },
-  { name: "Amit Patel", role: "Lead Developer", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" },
-  { name: "Sneha Gupta", role: "Design Lead", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face" },
-];
 
 const About = () => {
   return (
@@ -99,7 +94,7 @@ const About = () => {
         </section>
 
         {/* Values */}
-        <section className="py-20">
+        <section className="py-0">
           <div className="section-container">
             <div className="text-center mb-16">
               <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
@@ -127,39 +122,9 @@ const About = () => {
           </div>
         </section>
 
-        {/* Team */}
-        <section className="py-20 bg-secondary/30">
-          <div className="section-container">
-            <div className="text-center mb-16">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
-                Our Team
-              </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold">
-                Meet the <span className="text-gradient">Experts</span>
-              </h2>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {team.map((member, index) => (
-                <div 
-                  key={member.name}
-                  className="group text-center"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="relative mb-4 rounded-2xl overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name}
-                      className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                  <h3 className="font-bold text-lg">{member.name}</h3>
-                  <p className="text-muted-foreground">{member.role}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+       
+              <TeamSection />
+
       </main>
       <Footer />
     </div>

@@ -1,62 +1,73 @@
 import { ResizableNavbar } from "@/components/ResizableNavbar";
 import { Footer } from "@/components/Footer";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
+
+import cashinbuck from "../assets/cashinbuck.png";
+import autozcrave from "../assets/autozcrave.png";
+import medikosh from "../assets/medikosh.png";
+import rewardpayu from "../assets/rewardpayu.png";
+import aarushws from "../assets/aarushws.png";
+import flexrewards from "../assets/flexrewards.png";
+import onesupportonelife from "../assets/onesupportonelife.png";
+import bijatech from "../assets/bijatech.png";
 
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "Survey Platform",
     category: "Web Development",
-    description: "A full-featured e-commerce platform with payment integration, inventory management, and analytics dashboard.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-    link: "#",
+    description: "A rewards platform curating exciting, high-quality earning opportunities, prioritizing your time and maximizing your rewards.",
+    image: cashinbuck,
+    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "PHP", "MySQL"],
+    link: "https://cashinbucks.com/",
   },
   {
     id: 2,
-    title: "Healthcare Mobile App",
-    category: "Mobile Development",
-    description: "Patient management app with appointment scheduling, telemedicine, and health tracking features.",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=400&fit=crop",
-    technologies: ["Flutter", "Firebase", "Node.js"],
-    link: "#",
+    title: "E-Commerce Platform",
+    category: "Web Development",
+    description: "Medikosh is an online store offers largest range of Homeopathic and Ayurvedic Medicines",
+    image: medikosh,
+    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "CI", "MySQL"],
+    link: "https://medikosh.com/",
   },
   {
     id: 3,
-    title: "Survey GPT Platform",
-    category: "AI & Software",
-    description: "AI-powered survey platform using GPT technology for intelligent data collection and analysis.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-    technologies: ["Python", "OpenAI", "React", "PostgreSQL"],
-    link: "#",
+    title: "Survey Platform",
+    category: "Web Development",
+    description: "Complete tasks, play games, and take surveys to earn coins. Instantly Withdraw to PayPal, Bitcoin, Ethereum, and Gift Cards.",
+    image: rewardpayu,
+    technologies: ["HTML", "Tailwind CSS", "PHP", "MySQL"],
+    link: "https://rewardpayu.com/",
   },
   {
     id: 4,
-    title: "Restaurant Chain Website",
+    title: "Aarush Welfare Society",
     category: "Web Development",
-    description: "Multi-location restaurant website with online ordering, reservations, and loyalty program.",
-    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
-    technologies: ["Next.js", "Tailwind CSS", "Supabase"],
-    link: "#",
+    description: "Aarush Welfare Society is a nationally registered non-profit organization under the Society Registration Act, 1860. ",
+    image: aarushws,
+    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "PHP", "MySQL"],
+    link: "https://aarushws.org/",
   },
   {
     id: 5,
-    title: "Fitness Tracking App",
-    category: "Mobile Development",
-    description: "Comprehensive fitness app with workout plans, nutrition tracking, and social features.",
-    image: "https://images.unsplash.com/photo-1461896836934- voices?w=600&h=400&fit=crop",
-    technologies: ["React Native", "Node.js", "MongoDB"],
-    link: "#",
+    title: "Get paid surveys",
+    category: "Web Development",
+    description: "Earn up to $3,000 per offer • 10,000+ offers available now",
+    image: flexrewards,
+    technologies: ["React", "Tailwind CSS", "API Integration", "Node.js", "MongoDB"],
+    link: "https://flexrewards.net/",
   },
   {
     id: 6,
-    title: "Real Estate Portal",
+    title: "Autozcrave",
     category: "Web Development",
-    description: "Property listing platform with virtual tours, mortgage calculator, and agent matching.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
-    technologies: ["React", "Laravel", "MySQL"],
-    link: "#",
+    description: "We believe that quality is non-negotiable. Our products are meticulously crafted using the finest materials and the latest in detailing technology. ",
+    image: autozcrave,
+    technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "Laravel", "MySQL"],
+    link: "https://autozcrave.com/",
   },
   {
     id: 7,
@@ -66,19 +77,39 @@ const projects = [
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
     technologies: ["Vue.js", "Python", "AWS"],
     link: "#",
+    comingSoon: true // ✅ add this
   },
   {
-    id: 8,
-    title: "Enterprise CRM System",
-    category: "AI & Software",
-    description: "Custom CRM with AI-powered lead scoring, automation, and comprehensive reporting.",
-    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-    technologies: ["React", "Node.js", "PostgreSQL", "AI/ML"],
-    link: "#",
+  id: 8,
+  title: "CRM System",
+  category: "Mobile Development",
+  description: "Custom CRM with AI-powered lead scoring, automation, and comprehensive reporting.",
+  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
+  technologies: ["React", "Node.js", "PostgreSQL", "AI/ML"],
+  link: "#",
+  comingSoon: true // ✅ add this
+},
+  {
+    id: 9,
+    title: "NGO Platform",
+    category: "Web Development",
+    description: "One Support One Life Organisation is a non-profitable foundation based in Noida(Uttar Pradesh)",
+    image: onesupportonelife,
+    technologies: ["HTML", "CSS", "Bootstrap" , "JavaScript", "PHP", "MySQL"],
+    link: "https://www.onesupportonelife.org/",
+  },
+  {
+    id: 10,
+    title: "MEP Solutions Pvt. Ltd.",
+    category: "Web Development",
+    description: "Bijatech MEP Solutions Pvt. Ltd. is a trusted turnkey project solution provider for MEP, Electrical , Utility Projects.",
+    image: bijatech,
+    technologies: ["PHP", "HTML", "Bootstrap", "JavaScript", "PHP", "MySQL"],
+    link: "https://bijatech.in/",
   },
 ];
 
-const categories = ["All", "Web Development", "Mobile Development", "AI & Software", "Digital Marketing"];
+const categories = ["All", "Web Development", "Mobile Development", "Digital Marketing"];
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -92,7 +123,7 @@ const Portfolio = () => {
       <ResizableNavbar />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-12 relative noise-bg">
+        <section className="pt-32 pb-0 relative noise-bg">
           <div className="section-container text-center">
             <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-4">
               Our Portfolio
@@ -130,7 +161,7 @@ const Portfolio = () => {
         </section>
 
         {/* Projects Grid */}
-        <section className="py-16">
+        <section className="py-16 pb-0">
           <div className="section-container">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProjects.map((project, index) => (
@@ -139,33 +170,43 @@ const Portfolio = () => {
                   className="group rounded-2xl overflow-hidden bg-card border border-border card-hover"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="relative h-56 overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-foreground/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
-                      <a 
-                        href={project.link}
-                        className="w-12 h-12 rounded-full bg-card flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                      >
-                        <ExternalLink className="w-5 h-5" />
-                      </a>
-                      <a 
-                        href="#"
-                        className="w-12 h-12 rounded-full bg-card flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                      >
-                        <Github className="w-5 h-5" />
-                      </a>
-                    </div>
-                    <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 rounded-full text-xs font-semibold text-primary-foreground"
-                        style={{ background: "var(--gradient-primary)" }}>
-                        {project.category}
+                  <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+
+                  {/* 🔥 Coming Soon Overlay */}
+                  {project.comingSoon && (
+                    <div className="absolute w-full h-full inset-0 bg-black/60 flex items-center justify-center z-20">
+                      <span className=" w-full h-full text-white px-4 py-2 font-semibold text-xl flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
+                        🚀 Coming Soon
                       </span>
                     </div>
+                  )}
+
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-foreground/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                    <a 
+                      href={project.link}
+                      target="_blank"
+                      className="w-12 h-12 rounded-full bg-card flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
                   </div>
+
+                  {/* Category */}
+                  <div className="absolute top-4 left-4">
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold text-primary-foreground"
+                      style={{ background: "var(--gradient-primary)" }}>
+                      {project.category}
+                    </span>
+                  </div>
+                </div>
+
+
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-2 text-foreground group-hover:text-primary transition-colors">
                       {project.title}
@@ -187,6 +228,8 @@ const Portfolio = () => {
                 </div>
               ))}
             </div>
+              
+
           </div>
         </section>
 
@@ -200,9 +243,12 @@ const Portfolio = () => {
               <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
                 Let's work together to bring your vision to life. Contact us today to discuss your next project.
               </p>
-              <a href="/contact" className="btn-primary">
-                Start Your Project
-              </a>
+              <Link to="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-primary-foreground"
+                style={{ background: "var(--gradient-primary)" }}
+              >
+                Contact Us
+              </Link>
             </div>
           </div>
         </section>

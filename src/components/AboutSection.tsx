@@ -28,8 +28,8 @@ const values = [
 ];
 
 const stats = [
-  { icon: Users, value: "50+", label: "Team Members" },
-  { icon: Award, value: "100+", label: "Projects Delivered" },
+  { icon: Users, value: "15+", label: "Team Members" },
+  { icon: Award, value: "500+", label: "Projects Delivered" },
 ];
 
 export const AboutSection = () => {

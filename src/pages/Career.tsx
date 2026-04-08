@@ -10,39 +10,23 @@ import { useToast } from "@/hooks/use-toast";
 const openings = [
   {
     id: 1,
-    title: "Senior React Developer",
+    title: "Frontend Developer (React.js)",
     type: "Full-time",
-    location: "Mumbai / Remote",
-    experience: "3-5 years",
-    description: "We're looking for an experienced React developer to build cutting-edge web applications.",
-    skills: ["React", "TypeScript", "Next.js", "Tailwind CSS"],
+    location: "Remote / India",
+    experience: "2-4 years",
+    description:
+      "We are looking for a skilled React developer to build fast, responsive, and scalable web applications.",
+    skills: ["React.js", "JavaScript", "Tailwind CSS", "API Integration"],
   },
   {
     id: 2,
-    title: "Full Stack Developer",
-    type: "Full-time",
-    location: "Mumbai",
-    experience: "2-4 years",
-    description: "Join our team to build end-to-end solutions using modern technologies.",
-    skills: ["Node.js", "React", "MongoDB", "AWS"],
-  },
-  {
-    id: 3,
-    title: "UI/UX Designer",
+    title: "Website Designer (UI/UX)",
     type: "Full-time",
     location: "Remote",
-    experience: "2-3 years",
-    description: "Create beautiful and intuitive user interfaces for our clients' products.",
-    skills: ["Figma", "Adobe XD", "Prototyping", "User Research"],
-  },
-  {
-    id: 4,
-    title: "Digital Marketing Executive",
-    type: "Full-time",
-    location: "Mumbai",
     experience: "1-3 years",
-    description: "Drive our clients' online presence through strategic digital marketing campaigns.",
-    skills: ["SEO", "Google Ads", "Social Media", "Analytics"],
+    description:
+      "Design modern, user-friendly, and conversion-focused websites with a strong eye for UI/UX.",
+    skills: ["Figma", "UI Design", "UX Research", "Wireframing"],
   },
 ];
 
@@ -150,7 +134,16 @@ const Career = () => {
                       </span>
                     </div>
                   </div>
-                  <ArrowRight className={`w-5 h-5 text-primary transition-transform ${selectedJob === job.id ? "rotate-90" : ""}`} />
+                  <ArrowRight
+                    onClick={() => {
+                      document
+                        .getElementById("application-form")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className={`w-5 h-5 text-primary transition-transform ${
+                      selectedJob === job.id ? "rotate-90" : ""
+                    }`}
+                  />
                 </div>
                 <p className="text-muted-foreground mb-4">{job.description}</p>
                 <div className="flex flex-wrap gap-2">
@@ -167,7 +160,7 @@ const Career = () => {
       </section>
 
       {/* Application Form */}
-      <section className="py-10 bg-secondary/30">
+      <section className="py-10 bg-secondary/30" id="application-form">
         <div className="section-container">
           <div className="max-w-2xl mx-auto">
             <form onSubmit={handleSubmit} className="space-y-6 p-8 rounded-2xl bg-card border border-border">

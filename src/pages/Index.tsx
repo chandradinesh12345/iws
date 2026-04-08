@@ -9,6 +9,7 @@ import { ClientsSection } from "@/components/ClientsSection";
 import { BlogSection } from "@/components/BlogSection";
 import { TeamSection } from "@/components/TeamSection";
 import { Footer } from "@/components/Footer";
+//import { VideoTestimonials } from "@/components/VideoTestimonials";
 
 const Index = () => {
   return (
@@ -19,6 +20,7 @@ const Index = () => {
         <ClientsSection />
         <ServicesSection />
         <AboutSection />
+        
         <TechStackSection />
         <CounterSection />
         <TeamSection />

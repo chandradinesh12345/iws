@@ -1,6 +1,7 @@
 import { ResizableNavbar } from "@/components/ResizableNavbar";
 import { Footer } from "@/components/Footer";
 import { HelpCircle, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,
@@ -138,13 +139,12 @@ const FAQ = () => {
             <p className="text-muted-foreground mb-6">
               Can't find the answer you're looking for? Please reach out to our team.
             </p>
-            <a 
-              href="/contact" 
+            <Link to="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-primary-foreground"
               style={{ background: "var(--gradient-primary)" }}
             >
               Contact Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>

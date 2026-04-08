@@ -7,6 +7,7 @@ import dollarGc from "@/assets/clients/dollar_gc.png";
 import bijatech from "@/assets/clients/Bijatech_logo.png";
 
 
+
 const clients = [
   { name: "aimaxhub", logo: aimaxhub },
   { name: "AutozCrave", logo: autozCrave },
@@ -29,21 +30,17 @@ export const ClientsSection = () => {
         </div>
 
         {/* Client Logos Marquee */}
-        <div className="relative overflow-hidden">
-          {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted/30 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted/30 to-transparent z-10" />
-          
-          <div className="flex animate-marquee gap-12 whitespace-nowrap">
-            {[...clients, ...clients, ...clients].map((client, index) => (
+        <div className="relative overflow-hidden w-full">
+          <div className="flex animate-marquee gap-6 md:gap-12 whitespace-nowrap w-max">
+            {[...clients, ...clients].map((client, index) => (
               <div
                 key={`${client.name}-${index}`}
-                className="flex items-center justify-center px-8 py-6 rounded-xl bg-card border border-border hover:border-primary/50 min-w-[160px] transition-all duration-300 hover:shadow-lg group"
+                className="flex items-center justify-center px-4 md:px-8 py-4 md:py-6 rounded-xl bg-card border border-border min-w-[120px] md:min-w-[160px]"
               >
                 <img 
                   src={client.logo} 
                   alt={client.name}
-                  className="h-10 w-50 object-contain"
+                  className="h-8 md:h-10 w-auto object-contain"
                 />
               </div>
             ))}

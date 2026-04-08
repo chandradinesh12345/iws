@@ -83,9 +83,9 @@ const PrivacyPolicy = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   If you have any questions about this Privacy Policy, please contact us at:
                   <br /><br />
-                  <strong className="text-foreground">Email:</strong> privacy@infowebsoftware.com<br />
-                  <strong className="text-foreground">Phone:</strong> +91 98765 43210<br />
-                  <strong className="text-foreground">Address:</strong> Mumbai, Maharashtra, India
+                  <strong className="text-foreground">Email:</strong> info@infowebsoftware.com<br />
+                  <strong className="text-foreground">Phone:</strong> +91 9627407876<br />
+                  <strong className="text-foreground">Address:</strong> Manral’s Business Center Chharayal Choraha, Birla School Road, Haldwani, Uttarakhand 263139
                 </p>
               </div>
             </div>

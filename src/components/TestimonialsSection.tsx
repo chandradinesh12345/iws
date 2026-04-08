@@ -3,38 +3,38 @@ import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Rajesh Kumar",
-    role: "CEO, TechStart India",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-    content: "Info Web Software delivered an exceptional e-commerce platform for us. Their attention to detail and technical expertise exceeded our expectations. The team was incredibly responsive and delivered the project ahead of schedule.",
+    name: "Himanshu Joshi",
+    //role: "CEO, TechStart India",
+    image: "https://img.freepik.com/free-photo/close-up-portrait-young-bearded-man-white-shirt-jacket-posing-camera-with-broad-smile-isolated-gray_171337-629.jpg?semt=ais_hybrid&w=740&q=80",
+    content: "Great service, thank you Info Web Software. One of the best IT companies in Haldwani, Uttarakhand. Highly professional team and always supportive. I strongly recommend them to others.",
     rating: 5,
   },
   {
     name: "Priya Sharma",
-    role: "Founder, HealthTech Solutions",
+   // role: "Founder, HealthTech Solutions",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
-    content: "The mobile app they developed for our healthcare startup has been a game-changer. Professional team, great communication, and delivered on time. We've seen a 200% increase in user engagement since launch.",
+    content: "Amazing experience working with Info Web Software. Their team understands requirements clearly and delivers high-quality results on time. Truly reliable IT partner.",
     rating: 5,
   },
   {
     name: "Amit Patel",
-    role: "Director, Global Exports Ltd",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-    content: "Their digital marketing services helped us triple our online presence. The team is responsive, creative, and truly understands business goals. Our ROI has increased significantly since partnering with them.",
+    //role: "Director, Global Exports Ltd",
+    image: "https://img.freepik.com/free-photo/young-businessman-happy-expression_1194-1632.jpg?semt=ais_hybrid&w=740&q=80",
+    content: "Best software company in Haldwani! Info Web Software provided excellent service with great communication and support. Very happy with the final outcome.",
     rating: 5,
   },
   {
     name: "Sneha Gupta",
-    role: "CTO, EduLearn Pro",
+    //role: "CTO, EduLearn Pro",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-    content: "Working with Info Web Software on our learning management system was a fantastic experience. They understood our vision perfectly and delivered a scalable solution that serves thousands of students daily.",
+    content: "Highly impressed with the professionalism of Info Web Software. They delivered my project exactly as expected and even suggested improvements. Great experience overall.",
     rating: 5,
   },
   {
     name: "Vikram Singh",
-    role: "Manager, FinanceHub",
+   // role: "Manager, FinanceHub",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
-    content: "The custom CRM solution they built for us has streamlined our operations significantly. The team's expertise in building secure financial applications is commendable. Highly recommend their services!",
+    content: "If you're looking for a trusted IT company, Info Web Software is the best choice. Fast delivery, quality work, and excellent customer support.",
     rating: 5,
   },
 ];
@@ -94,46 +94,62 @@ export const TestimonialsSection = () => {
         {/* Testimonial Slider */}
         <div className="relative max-w-4xl mx-auto">
           {/* Main Testimonial Card */}
-          <div className="relative bg-card rounded-3xl border border-border p-8 md:p-12 shadow-xl">
-            <Quote className="absolute top-8 right-8 w-16 h-16 text-primary/10" />
+          {/* Testimonial Slider */}
+<div className="overflow-hidden">
+  <div 
+    className="flex transition-transform duration-700 ease-in-out"
+    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+  >
+    
+    {testimonials.map((item, index) => (
+      <div key={index} className="min-w-full px-2">
+        
+        <div className="relative bg-card rounded-3xl border border-border p-8 md:p-12">
+          <Quote className="absolute top-8 right-8 w-16 h-16 text-primary/10" />
+
+          <div className="flex flex-col md:flex-row gap-8 items-center">
             
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              {/* Avatar */}
-              <div className="relative flex-shrink-0">
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-4 ring-primary/20">
-                  <img
-                    src={testimonials[currentIndex].image}
-                    alt={testimonials[currentIndex].name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center" style={{ background: "var(--gradient-primary)" }}>
-                  <Quote className="w-5 h-5 text-primary-foreground" />
-                </div>
-              </div>
-              
-              {/* Content */}
-              <div className="flex-1 text-center md:text-left">
-                {/* Rating */}
-                <div className="flex gap-1 justify-center md:justify-start mb-4">
-                  {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                  ))}
-                </div>
-                
-                {/* Quote */}
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-6 italic">
-                  "{testimonials[currentIndex].content}"
-                </p>
-                
-                {/* Author */}
-                <div>
-                  <div className="font-bold text-xl text-foreground">{testimonials[currentIndex].name}</div>
-                  <div className="text-primary font-medium">{testimonials[currentIndex].role}</div>
-                </div>
+            {/* Avatar */}
+            <div className="relative flex-shrink-0">
+              <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-4 ring-primary/20">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
+
+            {/* Content */}
+            <div className="flex-1 text-center md:text-left">
+              
+              {/* Rating */}
+              <div className="flex gap-1 justify-center md:justify-start mb-4">
+                {[...Array(item.rating)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                ))}
+              </div>
+
+              {/* Text */}
+              <p className="text-lg md:text-xl text-muted-foreground mb-6 italic">
+                "{item.content}"
+              </p>
+
+              {/* Author */}
+              <div>
+                <div className="font-bold text-xl">{item.name}</div>
+                {/* <div className="text-primary">{item.role}</div> */}
+              </div>
+            </div>
+
           </div>
+        </div>
+
+      </div>
+    ))}
+
+  </div>
+</div>
 
           {/* Navigation Arrows */}
           <button

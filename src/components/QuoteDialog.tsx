@@ -43,7 +43,7 @@ export const QuoteDialog = ({ children }: QuoteDialogProps) => {
       <DialogTrigger asChild>
         {children}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-lg p-0 overflow-hidden border-0 bg-transparent">
+      <DialogContent className="sm:max-w-lg p-0 overflow-hidden border-0 bg-transparent [&>button]:hidden">
         <div className="relative">
           {/* Gradient Background */}
           <div className="absolute inset-0 rounded-2xl" style={{ background: "var(--gradient-primary)" }} />

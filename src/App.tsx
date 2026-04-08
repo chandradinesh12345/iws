@@ -16,6 +16,7 @@ import TermsConditions from "./pages/TermsConditions";
 import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
+
 // ✅ service pages
 import WebDesign from "./pages/servicespages/WebDesign";
 import SoftwareDevelopment from "./pages/servicespages/SoftwareDevelopment";
@@ -24,6 +25,7 @@ import DigitalMarketing from "./pages/servicespages/DigitalMarketing";
 import SurveyWebsite from "./pages/servicespages/SurveyWebsite";
 import ITConsulting from "./pages/servicespages/ITConsulting";
 
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -32,7 +34,8 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter basename="/iws">
+      <BrowserRouter>
+      <ScrollToTop />   {/* 👈 YEH MISSING THA */}
         <Routes>
           <Route path="/" element={<Index />} />
           

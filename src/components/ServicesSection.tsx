@@ -86,14 +86,13 @@ export const ServicesSection = () => {
               
               <div className="relative p-4 bg-card rounded-2xl m-[1px]">
                 {/* img */}
-                <div
-                  className={`w-full h-[200px] rounded-2xl mb-6
-                  group-hover:scale-[1.2] transition-transform object-cover overflow-hidden duration-300`}
-                >
+                <div className="w-full h-[200px] rounded-2xl mb-6 overflow-hidden">
                   <img
                     src={service.img}
                     alt={service.title}
-                    className="w-full h-[200px] object-cover rounded-2xl"
+                    className="w-full h-full object-cover rounded-2xl 
+                  transition-transform duration-700 ease-in-out 
+                  group-hover:scale-110"
                   />
                 </div>
 

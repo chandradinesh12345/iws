@@ -2,35 +2,98 @@ import { ResizableNavbar } from "@/components/ResizableNavbar";
 import { Footer } from "@/components/Footer";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { useState } from "react";
-import { useToast } from "@/hooks/use-toast";
 
 const contactInfo = [
   { icon: Mail, label: "Email", value: "info@infowebsoftware.com", href: "mailto:info@infowebsoftware.com" },
   { icon: Phone, label: "Phone", value: "+91 9627407876", href: "tel:9627407876" },
-  { icon: MapPin, label: "Address", value: "Manral’s Business Center Chharayal Choraha, Birla School Road, Haldwani, Uttarakhand 263139", href: "#" },
-  { icon: Clock, label: "Working Hours", value: "9AM to 5PM Mon To Sat", href: "#" },
+  { icon: MapPin, label: "Address", value: "Address...", href: "#" },
+  { icon: Clock, label: "Business Hours", value: "9:00 AM – 5:00 PM", href: "#" },
 ];
 
-const Contact = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    services: "",
-    message: "",
-  });
+const initialState = {
+  Name: "",
+  Email: "",
+  Phone: "",
+  Service: "",
+  Message: ""
+};
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you soon.",
-    });
-    setFormData({ name: "", email: "", phone: "", services: "", message: "" });
+const Contact = () => {
+
+  // ✅ state अंदर होना चाहिए
+  const [contactData, setcontactData] = useState(initialState);
+
+  // ✅ input change
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    let newValue = value;
+
+    // Name → only letters
+    if (name === "Name") {
+      newValue = value.replace(/[^a-zA-Z ]/g, "");
+    }
+
+    // Phone → only numbers (max 10)
+    if (name === "Phone") {
+      newValue = value.replace(/[^0-9]/g, "").slice(0, 10);
+    }
+
+    setcontactData((prevData) => ({
+      ...prevData,
+      [name]: newValue,
+    }));
+  };
+
+  // ✅ submit
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { Name, Email, Phone } = contactData;
+
+    // Validation
+    if (!/^[A-Za-z ]+$/.test(Name)) {
+      alert("Name should contain only letters");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(Email)) {
+      alert("Enter valid email");
+      return;
+    }
+
+    if (!/^[0-9]{10}$/.test(Phone)) {
+      alert("Phone must be 10 digits");
+      return;
+    }
+
+    try {
+      const res = await fetch("http://localhost:5001/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contactData),
+      });
+
+      if (res.ok) {
+        alert("Email sent successfully!");
+
+        // ✅ FORM RESET (MAIN FIX)
+        setcontactData(initialState);
+      } else {
+        alert("Error sending email");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
+
+
+
+    
     <div className="min-h-screen bg-background">
       <ResizableNavbar />
       <main>
@@ -82,7 +145,7 @@ const Contact = () => {
 
               {/* Contact Form */}
               <div className="lg:col-span-3">
-                <form onSubmit={handleSubmit} className="p-8 rounded-3xl bg-card border border-border">
+                <form className="p-8 rounded-3xl bg-card border border-border" onSubmit={handleSubmit}>
                   <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
                   <div className="grid sm:grid-cols-2 gap-6 mb-6">
                     <div>
@@ -90,8 +153,11 @@ const Contact = () => {
                       <input
                         type="text"
                         required
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        pattern="[A-Za-z ]+"
+                        title="Only letters allowed"
+                        name="Name"
+                        value={contactData.Name}
+                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                         placeholder="Enter your name"
                       />
@@ -101,8 +167,10 @@ const Contact = () => {
                       <input
                         type="email"
                         required
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        
+                        name="Email"
+                        value={contactData.Email}
+                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                         placeholder="name@example.com"
                       />
@@ -111,8 +179,11 @@ const Contact = () => {
                       <label className="block text-sm font-medium mb-2">Phone Number</label>
                       <input
                         type="tel"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        name="Phone"
+                        pattern="[0-9]{10}"
+                        title="Enter 10 digit phone number"
+                        value={contactData.Phone}
+                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                         placeholder="Enter your phone number"
                       />
@@ -122,8 +193,9 @@ const Contact = () => {
                       <input
                         type="text"
                         required
-                        value={formData.services}
-                        onChange={(e) => setFormData({ ...formData, services: e.target.value })}
+                        name="Service"
+                        value={contactData.Service}
+                        onChange={handleChange}
                         className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                         placeholder="Enter services you're interested in"
                       />
@@ -133,9 +205,10 @@ const Contact = () => {
                     <label className="block text-sm font-medium mb-2">Your Message</label>
                     <textarea
                       required
+                      name="Message"
+                      value={contactData.Message}
+                      onChange={handleChange}
                       rows={5}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="w-full px-4 py-3 rounded-xl border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
                       placeholder="Tell us about your project..."
                     />
